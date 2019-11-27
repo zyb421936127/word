@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #wrap {
+            margin: 150px auto;
+            width: 150px;
+            height: 150px;
+            position: relative;
+            transform: rotateX(0deg);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            background: rgba(255, 0, 0, 0.5) url(./image/奶奶.jpg) no-repeat center;
+            background-size: 100% 100%;
+
+        }
+
+        #wrap>div {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 1s;
+            transform: rotateY(0deg);
+        }
+
+        #wrap>div>img {
+            width: 150px;
+            height: 150px;
+
+        }
+
+        #btn {
+            width: 100px;
+            height: 40px;
+            background: red;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            border-radius: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div><img src="./image/一家人.jpg" alt=""></div>
+        <div><img src="./image/一家人1.jpg" alt=""></div>
+        <div><img src="./image/一家人2.jpg" alt=""></div>
+        <div><img src="./image/一家人3.jpg" alt=""></div>
+        <div><img src="./image/一家人4.jpg" alt=""></div>
+        <div><img src="./image/一家人5.jpg" alt=""></div>
+        <div><img src="./image/一家人6.jpg" alt=""></div>
+        <div><img src="./image/一家人7.jpg" alt=""></div>
+        <div><img src="./image/奶奶.jpg" alt=""></div>
+    </div>
+    <div id="btn">点击我</div>
+    <script>
+        var divImg = document.querySelectorAll('#wrap div');
+
+        for (var i = 0; i < divImg.length; i++) {
+            divImg[i].style.transform = 'rotateY(' + 360 / divImg.length * i + 'deg) translateZ(400px)';
+        }
+        var num = 0;
+        btn.onclick = function () {
+            num++;
+            for (var i = 0; i < divImg.length; i++) {
+                divImg[i].style.transition = '1s';
+                divImg[i].style.transform = 'rotateY(' + (360 / divImg.length * i + 360 / divImg.length * num) +
+                    'deg) translateZ(400px)';
+            }
+        }
+        setInterval(function () {
+            btn.onclick()
+        }, 3000)
+    </script>
+</body>
+
+</html>
